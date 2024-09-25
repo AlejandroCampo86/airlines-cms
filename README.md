@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+### CMS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El CMS debe permitir la gestión de productos (SKU, precios, inventario), pero también la gestión de vuelos y tripulación. Debe incluir módulos para generar reportes detallados de ventas y alertas automáticas cuando el stock sea bajo, monitoreo de inventarios, asignación de productos a vuelos, y actualización de datos en tiempo real.
 
-## Available Scripts
+El equipo a cargo del CMS colabora con los proveedores de productos para optimizar el proceso de reabastecimiento y la sincronización del inventario entre vuelos y almacenes.
 
-In the project directory, you can run:
+### competencia
 
-### `npm start`
+PROS
+DATALEX
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Dashboard.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El Dashboard mostrará la vista general de las ventas, inventarios, y alertas importantes.
 
-### `npm test`
+###### ProductManagement.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este componente permite gestionar los productos: listar, agregar, editar y eliminar productos.
 
-### `npm run build`
+## Descripción del Flujo:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Formulario para Nuevos Productos: El usuario puede ingresar los detalles del producto en un formulario que incluye campos como SKU, nombre, descripción, precio, cantidad en stock, categoría, peso y dimensiones.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## SKU proporcionado manualmente por el usuario
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Este enfoque puede ser útil si el SKU sigue un patrón o convención interna que tiene significado dentro de la operación. Algunos aspectos a considerar:
 
-### `npm run eject`
+Control y personalización: El equipo de operaciones puede querer usar un SKU que tenga sentido dentro de su sistema de inventario o logística (por ejemplo, usando códigos específicos para categorías o proveedores).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Integración con sistemas existentes: Si ya tienen un sistema de inventario que utiliza ciertos SKUs manuales, lo más lógico sería seguir permitiendo que el usuario los ingrese de forma personalizada.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Llamadas al Backend: Utilizamos los servicios de Axios para enviar los datos del nuevo producto al backend mediante una solicitud POST, y para eliminar productos mediante una solicitud DELETE.
+Actualización Automática: Después de agregar o eliminar un producto, la lista de productos se actualiza automáticamente, mostrando los cambios sin necesidad de recargar la página.
+Con este enfoque, el CMS ahora permite agregar nuevos productos al catálogo, alineándose con el controlador y las rutas del backend que ya tienes implementadas.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### FlightManagement.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+para gestionar los vuelos desde la interfaz del CMS. Este componente permitirá administrar los vuelos y asignar inventarios a cada vuelo.
 
-## Learn More
+### flightService.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este servicio utiliza Axios para interactuar con una API de backend que gestiona los datos de vuelos. Proporciona funciones para obtener, agregar, actualizar y eliminar vuelos.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### CrewManagement.js
 
-### Code Splitting
+Este componente permite manejar los miembros de la tripulación, mostrándolos en una tabla y permitiendo realizar operaciones como agregar, eliminar o actualizar información de cada miembro.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### crewService.js
 
-### Analyzing the Bundle Size
+Este componente permite al administrador gestionar a los miembros de la tripulación asignados a los vuelos de la aerolínea, agregando nuevas tripulaciones, eliminándolas o actualizando su información.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### reportService.js
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este servicio se encarga de interactuar con la API del backend para recuperar reportes detallados de las ventas y el desempeño en los vuelos.
