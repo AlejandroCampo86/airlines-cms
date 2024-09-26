@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+/* Style for the app background */
+.app-background {
+  background-image: url('./assets/images/airplanebg.jpg');
+  background-size: cover;
+    /* Hace que la imagen cubra todo el fondo */
+    background-position: center;
+    /* Centra la imagen */
+    background-attachment: fixed;
+    /* Fija el fondo para que se mantenga al hacer scroll */
+    background-repeat: no-repeat;
+    /* No repetir la imagen */
+    min-height: 100vh;
+    /* Asegura que cubra al menos la altura de la ventana */
+    width: 100vw;
+    /* Cubre todo el ancho de la ventana */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjust the container to ensure the content is readable */
+.content-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Add a semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Add shadow for contrast */
+}
