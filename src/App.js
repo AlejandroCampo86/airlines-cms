@@ -8,6 +8,7 @@ import CrewManagement from './components/CrewManagement/CrewManagement';
 import Reports from './pages/Reports/Reports';
 import { Container } from 'react-bootstrap';
 import './App.css';  // Import the CSS file for background styling
+import KanbanBoard from './components/BarsetManament/KanbanBoard';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/products" element={<ProductManagement />} />
+            <Route path="/warehouse" element={<KanbanBoard />} />
             <Route path="/flights" element={<FlightManagement />} />
             <Route path="/crew" element={<CrewManagement />} />
             <Route path="/reports" element={<Reports />} />

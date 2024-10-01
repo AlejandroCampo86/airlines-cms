@@ -33,6 +33,23 @@ Llamadas al Backend: Utilizamos los servicios de Axios para enviar los datos del
 Actualización Automática: Después de agregar o eliminar un producto, la lista de productos se actualiza automáticamente, mostrando los cambios sin necesidad de recargar la página.
 Con este enfoque, el CMS ahora permite agregar nuevos productos al catálogo, alineándose con el controlador y las rutas del backend que ya tienes implementadas.
 
+### WarehouseManagement.js
+
+tiene un diseño Kanban, una metodología visual muy eficiente para gestionar flujos de trabajo o inventarios. En este caso, parece que está orientada a la gestión de trolleys o barsets (contenedores para ventas a bordo), donde cada columna representa un estado del proceso, como:
+
+- Awaiting Stock Checked: Barsets que están esperando una revisión de inventario.
+- Stock Checked: Barsets con el inventario revisado.
+- Incomplete: Barsets que aún tienen procesos pendientes.
+- Packed: Barsets que ya han sido preparados y están listos para el envío.
+- Dispatched: Barsets que ya fueron despachados.
+
+Este tipo de estructura es excelente para gestionar el estado de los inventarios de trolleys, asegurando que cada uno pase por las fases necesarias antes de ser embarcado o entregado a otro departamento.
+
+Ventajas de implementar un sistema similar en tu CMS:
+Visualización clara del flujo de trabajo: Con un sistema estilo Kanban, puedes ver de un vistazo en qué estado se encuentran los trolleys, lo que facilita la toma de decisiones rápidas.
+Gestión eficiente de inventario: Permite gestionar el inventario de manera dinámica y en tiempo real, ideal para operaciones como vuelos, donde es crucial tener un control preciso de los productos a bordo.
+Flexibilidad para añadir o quitar fases: Puedes personalizar el sistema según las necesidades operativas, añadiendo más columnas o fases según el ciclo de vida de un trolley/barset.
+
 ### FlightManagement.js
 
 para gestionar los vuelos desde la interfaz del CMS. Este componente permitirá administrar los vuelos y asignar inventarios a cada vuelo.
@@ -44,6 +61,8 @@ Este servicio utiliza Axios para interactuar con una API de backend que gestiona
 ### CrewManagement.js
 
 Este componente permite manejar los miembros de la tripulación, mostrándolos en una tabla y permitiendo realizar operaciones como agregar, eliminar o actualizar información de cada miembro.
+
+Crew Management en este CMS, cuyo objetivo es gestionar el inventario y las ventas a bordo de los diferentes vuelos, la interfaz debería estar enfocada en dos áreas principales: gestión del personal de vuelo y asignación de tripulación a vuelos específicos. Este tipo de funcionalidad permitiría a los administradores del CMS tener control no solo sobre la disponibilidad de productos a bordo, sino también sobre el equipo responsable de la venta y administración durante el vuelo.
 
 ### crewService.js
 

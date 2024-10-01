@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 
-const API_URL = 'http://192.168.0.101:5000/api/flights';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/flights`;
 
 // Get all flights
 const getFlights = () => {

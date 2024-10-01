@@ -1,10 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 
-const API_URL = 'http://192.168.0.101:5000/api/products';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/products`;
 
 // Fetch all products
 const getProducts = async () => {
+    console.log('url ', process.env.REACT_APP_API_URL)
     try {
         const response = await axios.get(API_URL);
         console.log("Products fetched successfully:", response.data);
